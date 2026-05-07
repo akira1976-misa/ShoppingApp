@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary_color">#FF6600</color>
+    <color name="primary_dark">#CC5200</color>
+    <color name="primary_light">#FFE0CC</color>
+
+    <color name="deal_red">#E53935</color>
+    <color name="free_shipping_color">#2E7D32</color>
+    <color name="shipping_fee_color">#757575</color>
+    <color name="rating_star_color">#FFA000</color>
+
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+
+    <color name="bg_gray">#F5F5F5</color>
+    <color name="divider_color">#EEEEEE</color>
+    <color name="total_price_bg">#FFF3E0</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>

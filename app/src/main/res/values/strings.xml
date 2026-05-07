@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">최저가 쇼핑</string>
+    <string name="nav_home">홈</string>
+    <string name="nav_search">검색</string>
+    <string name="sort_lowest_total">최저가순 (배송비 포함)</string>
+    <string name="sort_price_low">가격 낮은순</string>
+    <string name="sort_price_high">가격 높은순</string>
+    <string name="sort_review">리뷰 많은순</string>
+    <string name="sort_rating">별점 높은순</string>
+    <string name="free_shipping">무료배송</string>
+    <string name="special_deal">특가</string>
+</resources>
