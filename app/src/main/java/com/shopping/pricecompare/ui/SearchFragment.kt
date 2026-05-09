@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.chip.Chip
 import com.shopping.pricecompare.R
 import com.shopping.pricecompare.data.SampleData
 import com.shopping.pricecompare.databinding.FragmentSearchBinding
@@ -40,7 +41,7 @@ class SearchFragment : Fragment() {
         val categories = SampleData.categories.drop(1)
         binding.categoryGrid.removeAllViews()
         categories.forEach { category ->
-            val chip = com.google.android.material.chip.Chip(requireContext()).apply {
+            val chip = Chip(requireContext()).apply {
                 text = category
                 isCheckable = false
                 textSize = 14f

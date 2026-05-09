@@ -22,7 +22,7 @@ class ProductDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProductDetailBinding
     private val numberFormat = NumberFormat.getNumberInstance(Locale.KOREA)
 
-    @SuppressLint("SetJavaScriptEnabled")
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProductDetailBinding.inflate(layoutInflater)
@@ -47,7 +47,7 @@ class ProductDetailActivity : AppCompatActivity() {
         binding.tvDetailShopName.text = product.shopName
         binding.tvDetailPrice.text = "${numberFormat.format(product.price)}원"
         binding.tvDetailShipping.text = if (product.isFreeShipping) "무료배송"
-        else "배송비 ${numberFormat.format(product.shippingFee)}원"
+            else "배송비 ${numberFormat.format(product.shippingFee)}원"
         binding.tvDetailTotal.text = "합산 ${numberFormat.format(product.totalPrice)}원"
         binding.tvDetailRating.text = "${product.rating} (${numberFormat.format(product.reviewCount)}개 리뷰)"
         binding.tvDetailDescription.text = product.description
@@ -74,7 +74,10 @@ class ProductDetailActivity : AppCompatActivity() {
         binding.btnShare.setOnClickListener {
             val shareIntent = Intent(Intent.ACTION_SEND).apply {
                 type = "text/plain"
-                putExtra(Intent.EXTRA_TEXT, "${product.name}\n가격: ${numberFormat.format(product.price)}원\n${product.productUrl}")
+                putExtra(
+                    Intent.EXTRA_TEXT,
+                    "${product.name}\n가격: ${numberFormat.format(product.price)}원\n${product.productUrl}"
+                )
             }
             startActivity(Intent.createChooser(shareIntent, "상품 공유하기"))
         }
@@ -90,7 +93,9 @@ class ProductDetailActivity : AppCompatActivity() {
             settings.javaScriptEnabled = true
             settings.domStorageEnabled = true
             webViewClient = object : WebViewClient() {
-                override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+                override fun shouldOverrideUrlLoading(
+                    view: WebView, request: WebResourceRequest
+                ): Boolean {
                     view.loadUrl(request.url.toString())
                     return true
                 }

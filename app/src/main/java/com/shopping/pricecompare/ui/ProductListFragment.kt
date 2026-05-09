@@ -1,5 +1,6 @@
 package com.shopping.pricecompare.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,6 @@ import com.shopping.pricecompare.adapter.ProductAdapter
 import com.shopping.pricecompare.data.SampleData
 import com.shopping.pricecompare.databinding.FragmentProductListBinding
 import com.shopping.pricecompare.model.SortOption
-import com.shopping.pricecompare.ui.ProductDetailActivity
 
 class ProductListFragment : Fragment() {
 
@@ -36,23 +36,19 @@ class ProductListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        // 이전 화면에서 전달받은 카테고리
         currentCategory = arguments?.getString("category") ?: "전체"
-        val isSearchMode = arguments?.getBoolean("searchMode", false) ?: false
-
         setupRecyclerView()
         setupCategoryChips()
-        setupSearchView(isSearchMode)
+        setupSearchView()
         setupSortButton()
         updateProductList()
         updateSortLabel()
     }
 
     private fun setupRecyclerView() {
-        productAdapter = ProductAdapter { product ->
-            val intent = android.content.Intent(requireContext(), ProductDetailActivity::class.java)
-            intent.putExtra("product", product)
+        productAdapter = ProductAdapter(false) { product ->
+            val intent = Intent(requireContext(), ProductDetailActivity::class.java)
+            intent.putExtra("product", product as java.io.Serializable)
             startActivity(intent)
         }
         binding.rvProducts.apply {
@@ -69,7 +65,9 @@ class ProductListFragment : Fragment() {
                 text = category
                 isCheckable = true
                 isChecked = category == currentCategory
-                setChipBackgroundColorResource(R.color.primary_light)
+                chipBackgroundColor = android.content.res.ColorStateList.valueOf(
+                    requireContext().getColor(R.color.primary_light)
+                )
                 setTextColor(requireContext().getColor(R.color.primary_color))
                 chipStrokeWidth = 1f
                 setChipStrokeColorResource(R.color.primary_color)
@@ -82,8 +80,7 @@ class ProductListFragment : Fragment() {
         }
     }
 
-    private fun setupSearchView(isSearchMode: Boolean) {
-        binding.searchViewProducts.isVisible = true
+    private fun setupSearchView() {
         binding.searchViewProducts.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 currentQuery = query ?: ""
@@ -96,9 +93,6 @@ class ProductListFragment : Fragment() {
                 return true
             }
         })
-        if (isSearchMode) {
-            binding.searchViewProducts.requestFocus()
-        }
     }
 
     private fun setupSortButton() {
@@ -111,24 +105,20 @@ class ProductListFragment : Fragment() {
             .inflate(R.layout.bottom_sheet_sort, null)
         dialog.setContentView(sheetView)
 
-        val sortOptions = SortOption.values()
-        sortOptions.forEach { option ->
+        val container = sheetView.findViewById<android.widget.LinearLayout>(R.id.sort_options_container)
+        SortOption.values().forEach { option ->
             val row = LayoutInflater.from(requireContext())
                 .inflate(R.layout.item_sort_option, null)
-            val tvOption = row.findViewById<android.widget.TextView>(R.id.tv_sort_option)
-            val ivCheck = row.findViewById<android.widget.ImageView>(R.id.iv_sort_check)
-            tvOption.text = option.label
-            ivCheck.isVisible = option == currentSort
+            row.findViewById<android.widget.TextView>(R.id.tv_sort_option).text = option.label
+            row.findViewById<android.widget.ImageView>(R.id.iv_sort_check).isVisible = option == currentSort
             row.setOnClickListener {
                 currentSort = option
                 updateProductList()
                 updateSortLabel()
                 dialog.dismiss()
             }
-            sheetView.findViewById<android.widget.LinearLayout>(R.id.sort_options_container)
-                .addView(row)
+            container.addView(row)
         }
-
         dialog.show()
     }
 
@@ -142,15 +132,13 @@ class ProductListFragment : Fragment() {
         } else {
             SampleData.getByCategory(currentCategory)
         }
-
         val sorted = when (currentSort) {
-            SortOption.LOWEST_TOTAL  -> baseList.sortedBy { it.totalPrice }
-            SortOption.PRICE_LOW     -> baseList.sortedBy { it.price }
-            SortOption.PRICE_HIGH    -> baseList.sortedByDescending { it.price }
-            SortOption.REVIEW_COUNT  -> baseList.sortedByDescending { it.reviewCount }
-            SortOption.RATING        -> baseList.sortedByDescending { it.rating }
+            SortOption.LOWEST_TOTAL -> baseList.sortedBy { it.totalPrice }
+            SortOption.PRICE_LOW    -> baseList.sortedBy { it.price }
+            SortOption.PRICE_HIGH   -> baseList.sortedByDescending { it.price }
+            SortOption.REVIEW_COUNT -> baseList.sortedByDescending { it.reviewCount }
+            SortOption.RATING       -> baseList.sortedByDescending { it.rating }
         }
-
         productAdapter.submitList(sorted)
         binding.tvResultCount.text = "총 ${sorted.size}개의 상품"
         binding.tvEmptyState.isVisible = sorted.isEmpty()

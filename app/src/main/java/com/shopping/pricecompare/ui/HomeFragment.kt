@@ -1,5 +1,6 @@
 package com.shopping.pricecompare.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -47,7 +48,6 @@ class HomeFragment : Fragment() {
     private fun setupCategoryButtons() {
         val categories = SampleData.categories.drop(1)
         binding.categoryContainer.removeAllViews()
-
         categories.forEach { category ->
             val chip = com.google.android.material.chip.Chip(requireContext()).apply {
                 text = category
@@ -69,34 +69,28 @@ class HomeFragment : Fragment() {
         }
     }
 
+    private fun navigateToDetail(product: Product) {
+        val intent = Intent(requireContext(), ProductDetailActivity::class.java)
+        intent.putExtra("product", product as java.io.Serializable)
+        startActivity(intent)
+    }
+
     private fun setupSpecialDeals() {
-        specialDealAdapter = ProductAdapter({ product -> navigateToDetail(product) }, isHorizontal = true)
+        specialDealAdapter = ProductAdapter(true) { product -> navigateToDetail(product) }
         binding.rvSpecialDeals.apply {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = specialDealAdapter
         }
-        val deals = SampleData.getSpecialDeals()
-            .sortedBy { it.totalPrice }
-            .take(6)
-        specialDealAdapter.submitList(deals)
+        specialDealAdapter.submitList(SampleData.getSpecialDeals().sortedBy { it.totalPrice }.take(6))
     }
 
     private fun setupLowestPriceProducts() {
-        lowestPriceAdapter = ProductAdapter { product -> navigateToDetail(product) }
+        lowestPriceAdapter = ProductAdapter(false) { product -> navigateToDetail(product) }
         binding.rvLowestPrice.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
             adapter = lowestPriceAdapter
         }
-        val lowest = SampleData.products
-            .sortedBy { it.totalPrice }
-            .take(8)
-        lowestPriceAdapter.submitList(lowest)
-    }
-
-    private fun navigateToDetail(product: Product) {
-        val intent = android.content.Intent(requireContext(), ProductDetailActivity::class.java)
-        intent.putExtra("product", product)
-        startActivity(intent)
+        lowestPriceAdapter.submitList(SampleData.products.sortedBy { it.totalPrice }.take(8))
     }
 
     override fun onDestroyView() {

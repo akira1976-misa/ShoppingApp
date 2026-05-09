@@ -19,26 +19,26 @@ import java.text.NumberFormat
 import java.util.Locale
 
 class ProductAdapter(
-    private val onProductClick: (Product) -> Unit,
-    private val isHorizontal: Boolean = false
+    private val isHorizontal: Boolean = false,
+    private val onProductClick: (Product) -> Unit
 ) : ListAdapter<Product, ProductAdapter.ProductViewHolder>(DiffCallback()) {
 
     private val numberFormat = NumberFormat.getNumberInstance(Locale.KOREA)
 
     inner class ProductViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val cardRoot: CardView         = itemView.findViewById(R.id.card_root)
-        private val imgProduct: ImageView      = itemView.findViewById(R.id.img_product)
-        private val tvSpecialBadge: TextView   = itemView.findViewById(R.id.tv_special_badge)
-        private val tvDiscountRate: TextView   = itemView.findViewById(R.id.tv_discount_rate)
-        private val tvProductName: TextView    = itemView.findViewById(R.id.tv_product_name)
-        private val tvShopName: TextView       = itemView.findViewById(R.id.tv_shop_name)
-        private val tvOriginalPrice: TextView  = itemView.findViewById(R.id.tv_original_price)
-        private val tvProductPrice: TextView   = itemView.findViewById(R.id.tv_product_price)
-        private val tvShippingFee: TextView    = itemView.findViewById(R.id.tv_shipping_fee)
-        private val tvTotalPrice: TextView     = itemView.findViewById(R.id.tv_total_price)
-        private val ratingBar: RatingBar       = itemView.findViewById(R.id.rating_bar)
-        private val tvRating: TextView         = itemView.findViewById(R.id.tv_rating)
-        private val tvReviewCount: TextView    = itemView.findViewById(R.id.tv_review_count)
+        private val cardRoot: CardView        = itemView.findViewById(R.id.card_root)
+        private val imgProduct: ImageView     = itemView.findViewById(R.id.img_product)
+        private val tvSpecialBadge: TextView  = itemView.findViewById(R.id.tv_special_badge)
+        private val tvDiscountRate: TextView  = itemView.findViewById(R.id.tv_discount_rate)
+        private val tvProductName: TextView   = itemView.findViewById(R.id.tv_product_name)
+        private val tvShopName: TextView      = itemView.findViewById(R.id.tv_shop_name)
+        private val tvOriginalPrice: TextView = itemView.findViewById(R.id.tv_original_price)
+        private val tvProductPrice: TextView  = itemView.findViewById(R.id.tv_product_price)
+        private val tvShippingFee: TextView   = itemView.findViewById(R.id.tv_shipping_fee)
+        private val tvTotalPrice: TextView    = itemView.findViewById(R.id.tv_total_price)
+        private val ratingBar: RatingBar      = itemView.findViewById(R.id.rating_bar)
+        private val tvRating: TextView        = itemView.findViewById(R.id.tv_rating)
+        private val tvReviewCount: TextView   = itemView.findViewById(R.id.tv_review_count)
 
         fun bind(product: Product) {
             Glide.with(imgProduct.context)
