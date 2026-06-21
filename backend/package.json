@@ -1,0 +1,11 @@
+{
+  "name": "pricecompare-agents",
+  "version": "1.0.0",
+  "description": "최저가 쇼핑 앱을 위한 가격 수집/검색/딥링크 서브에이전트",
+  "scripts": {
+    "collect": "node collector/collect.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

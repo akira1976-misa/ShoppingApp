@@ -1,0 +1,39 @@
+name: Collect Category Prices
+
+on:
+  schedule:
+    # 매 3시간마다 실행 (UTC 기준이라 KST와 9시간 차이 있음)
+    - cron: "0 */3 * * *"
+  workflow_dispatch: {} # 수동 실행 버튼도 사용 가능하게
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Node.js 설정
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: 가격 수집 실행
+        working-directory: backend
+        env:
+          COUPANG_ACCESS_KEY: ${{ secrets.COUPANG_ACCESS_KEY }}
+          COUPANG_SECRET_KEY: ${{ secrets.COUPANG_SECRET_KEY }}
+          NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
+          NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+        run: node collector/collect.js
+
+      - name: 결과 커밋 및 푸시
+        run: |
+          git config user.name "price-collector-bot"
+          git config user.email "actions@github.com"
+          git add backend/data/
+          git diff --quiet --cached || git commit -m "가격 데이터 자동 업데이트 $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push

@@ -1,0 +1,6 @@
+-keep class com.shopping.pricecompare.model.** { *; }
+-keep class com.shopping.pricecompare.api.model.** { *; }
+-keep class com.google.gson.** { *; }
+-keepattributes Signature,*Annotation*
+-dontwarn okhttp3.**
+-dontwarn okio.**

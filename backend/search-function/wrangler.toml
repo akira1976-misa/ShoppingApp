@@ -1,0 +1,9 @@
+name = "pricecompare-search"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# 키 등록은 코드에 쓰지 않고 아래 명령어로 따로 등록합니다 (보안):
+#   wrangler secret put COUPANG_ACCESS_KEY
+#   wrangler secret put COUPANG_SECRET_KEY
+#   wrangler secret put NAVER_CLIENT_ID
+#   wrangler secret put NAVER_CLIENT_SECRET
