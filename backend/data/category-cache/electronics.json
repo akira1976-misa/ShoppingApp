@@ -1,0 +1,201 @@
+{
+  "category": "electronics",
+  "updatedAt": "2026-06-21T14:40:52.348Z",
+  "keywords": {
+    "무선이어폰": [
+      {
+        "canonicalTitle": "무선이어폰 쿠팡 예시상품 1",
+        "items": [
+          {
+            "source": "coupang",
+            "title": "무선이어폰 쿠팡 예시상품 1",
+            "price": 10000,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://www.coupang.com/vp/products/mock-0",
+            "rating": 4.5
+          },
+          {
+            "source": "coupang",
+            "title": "무선이어폰 쿠팡 예시상품 2",
+            "price": 11500,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://www.coupang.com/vp/products/mock-1",
+            "rating": 4.5
+          },
+          {
+            "source": "coupang",
+            "title": "무선이어폰 쿠팡 예시상품 3",
+            "price": 13000,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://www.coupang.com/vp/products/mock-2",
+            "rating": 4.5
+          },
+          {
+            "source": "naver",
+            "title": "무선이어폰 네이버 예시상품 1",
+            "price": 9800,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://shopping.naver.com/mock-0",
+            "mallName": "스마트스토어 예시",
+            "rating": 4.7
+          },
+          {
+            "source": "naver",
+            "title": "무선이어폰 네이버 예시상품 2",
+            "price": 11000,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://shopping.naver.com/mock-1",
+            "mallName": "스마트스토어 예시",
+            "rating": 4.7
+          },
+          {
+            "source": "naver",
+            "title": "무선이어폰 네이버 예시상품 3",
+            "price": 12200,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://shopping.naver.com/mock-2",
+            "mallName": "스마트스토어 예시",
+            "rating": 4.7
+          }
+        ],
+        "lowestPrice": 9800,
+        "lowestSource": "naver",
+        "lowestLink": "https://shopping.naver.com/mock-0",
+        "priceRange": {
+          "min": 9800,
+          "max": 13000
+        }
+      }
+    ],
+    "보조배터리": [
+      {
+        "canonicalTitle": "보조배터리 쿠팡 예시상품 1",
+        "items": [
+          {
+            "source": "coupang",
+            "title": "보조배터리 쿠팡 예시상품 1",
+            "price": 10000,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://www.coupang.com/vp/products/mock-0",
+            "rating": 4.5
+          },
+          {
+            "source": "coupang",
+            "title": "보조배터리 쿠팡 예시상품 2",
+            "price": 11500,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://www.coupang.com/vp/products/mock-1",
+            "rating": 4.5
+          },
+          {
+            "source": "coupang",
+            "title": "보조배터리 쿠팡 예시상품 3",
+            "price": 13000,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://www.coupang.com/vp/products/mock-2",
+            "rating": 4.5
+          },
+          {
+            "source": "naver",
+            "title": "보조배터리 네이버 예시상품 1",
+            "price": 9800,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://shopping.naver.com/mock-0",
+            "mallName": "스마트스토어 예시",
+            "rating": 4.7
+          },
+          {
+            "source": "naver",
+            "title": "보조배터리 네이버 예시상품 2",
+            "price": 11000,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://shopping.naver.com/mock-1",
+            "mallName": "스마트스토어 예시",
+            "rating": 4.7
+          },
+          {
+            "source": "naver",
+            "title": "보조배터리 네이버 예시상품 3",
+            "price": 12200,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://shopping.naver.com/mock-2",
+            "mallName": "스마트스토어 예시",
+            "rating": 4.7
+          }
+        ],
+        "lowestPrice": 9800,
+        "lowestSource": "naver",
+        "lowestLink": "https://shopping.naver.com/mock-0",
+        "priceRange": {
+          "min": 9800,
+          "max": 13000
+        }
+      }
+    ],
+    "블루투스스피커": [
+      {
+        "canonicalTitle": "블루투스스피커 쿠팡 예시상품 1",
+        "items": [
+          {
+            "source": "coupang",
+            "title": "블루투스스피커 쿠팡 예시상품 1",
+            "price": 10000,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://www.coupang.com/vp/products/mock-0",
+            "rating": 4.5
+          },
+          {
+            "source": "coupang",
+            "title": "블루투스스피커 쿠팡 예시상품 2",
+            "price": 11500,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://www.coupang.com/vp/products/mock-1",
+            "rating": 4.5
+          },
+          {
+            "source": "coupang",
+            "title": "블루투스스피커 쿠팡 예시상품 3",
+            "price": 13000,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://www.coupang.com/vp/products/mock-2",
+            "rating": 4.5
+          },
+          {
+            "source": "naver",
+            "title": "블루투스스피커 네이버 예시상품 1",
+            "price": 9800,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://shopping.naver.com/mock-0",
+            "mallName": "스마트스토어 예시",
+            "rating": 4.7
+          },
+          {
+            "source": "naver",
+            "title": "블루투스스피커 네이버 예시상품 2",
+            "price": 11000,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://shopping.naver.com/mock-1",
+            "mallName": "스마트스토어 예시",
+            "rating": 4.7
+          },
+          {
+            "source": "naver",
+            "title": "블루투스스피커 네이버 예시상품 3",
+            "price": 12200,
+            "image": "https://via.placeholder.com/200",
+            "link": "https://shopping.naver.com/mock-2",
+            "mallName": "스마트스토어 예시",
+            "rating": 4.7
+          }
+        ],
+        "lowestPrice": 9800,
+        "lowestSource": "naver",
+        "lowestLink": "https://shopping.naver.com/mock-0",
+        "priceRange": {
+          "min": 9800,
+          "max": 13000
+        }
+      }
+    ]
+  }
+}
