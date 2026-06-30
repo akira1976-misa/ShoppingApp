@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_root" android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_margin="6dp" android:foreground="?attr/selectableItemBackground"
+    app:cardCornerRadius="16dp" app:cardElevation="4dp" app:cardBackgroundColor="@color/card_bg">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <FrameLayout android:layout_width="match_parent" android:layout_height="150dp">
+            <ImageView android:id="@+id/img_product" android:layout_width="match_parent"
+                android:layout_height="match_parent" android:scaleType="centerCrop"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_gravity="bottom" android:background="#80000000" android:padding="6dp">
+                <TextView android:id="@+id/tv_special_badge" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:background="@drawable/bg_special_badge" android:paddingHorizontal="6dp" android:paddingVertical="2dp"
+                    android:text="특가" android:textColor="@color/white" android:textSize="10sp" android:textStyle="bold" android:visibility="gone"/>
+                <TextView android:id="@+id/tv_discount_rate" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp" android:textColor="#FFD700" android:textSize="11sp" android:textStyle="bold" android:visibility="gone"/>
+            </LinearLayout>
+        </FrameLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+            <TextView android:id="@+id/tv_product_name" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:maxLines="2" android:ellipsize="end" android:textColor="@color/text_primary" android:textSize="12sp" android:textStyle="bold"/>
+            <TextView android:id="@+id/tv_shop_name" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:textColor="@color/gold_color" android:textSize="10sp"/>
+            <TextView android:id="@+id/tv_original_price" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:layout_marginTop="4dp" android:textColor="@color/text_hint" android:textSize="10sp" android:visibility="gone"/>
+            <TextView android:id="@+id/tv_product_price" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="2dp" android:textColor="@color/text_primary" android:textSize="14sp" android:textStyle="bold"/>
+            <TextView android:id="@+id/tv_shipping_fee" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="10sp"/>
+            <androidx.cardview.widget.CardView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:layout_marginTop="6dp" app:cardBackgroundColor="@color/lowest_price_bg" app:cardCornerRadius="8dp" app:cardElevation="0dp">
+                <TextView android:id="@+id/tv_total_price" android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:gravity="center" android:padding="4dp" android:textColor="@color/lowest_price_color" android:textSize="11sp" android:textStyle="bold"/>
+            </androidx.cardview.widget.CardView>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="6dp" android:gravity="center_vertical">
+                <RatingBar android:id="@+id/rating_bar" style="?android:attr/ratingBarStyleSmall" android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" android:isIndicator="true" android:numStars="5" android:progressTint="@color/rating_star_color" android:stepSize="0.5"/>
+                <TextView android:id="@+id/tv_rating" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp" android:textColor="@color/text_secondary" android:textSize="10sp"/>
+                <TextView android:id="@+id/tv_review_count" android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp" android:textColor="@color/text_hint" android:textSize="10sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

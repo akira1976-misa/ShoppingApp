@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="horizontal" android:gravity="center_vertical" android:paddingHorizontal="16dp" android:paddingVertical="12dp">
+    <TextView android:id="@+id/tv_seller_rank" android:layout_width="28dp" android:layout_height="28dp"
+        android:gravity="center" android:textColor="@color/white" android:textSize="12sp" android:textStyle="bold" android:background="@drawable/bg_rank_normal"/>
+    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="10dp" android:orientation="vertical">
+        <TextView android:id="@+id/tv_seller_shop" android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="@color/text_primary" android:textSize="14sp" android:textStyle="bold"/>
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="2dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="상품 " android:textColor="@color/text_secondary" android:textSize="11sp"/>
+            <TextView android:id="@+id/tv_seller_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text_primary" android:textSize="11sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  배송 " android:textColor="@color/text_secondary" android:textSize="11sp"/>
+            <TextView android:id="@+id/tv_seller_shipping" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/free_shipping_color" android:textSize="11sp"/>
+        </LinearLayout>
+    </LinearLayout>
+    <TextView android:id="@+id/tv_seller_total" android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp" android:textColor="@color/text_primary" android:textSize="14sp" android:textStyle="bold"/>
+    <TextView android:id="@+id/btn_buy" android:layout_width="56dp" android:layout_height="32dp"
+        android:background="@drawable/bg_primary_btn" android:gravity="center" android:text="구매" android:textColor="@color/white" android:textSize="12sp" android:textStyle="bold"/>
+</LinearLayout>
