@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFF8E7"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="10dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="💡 이 앱은 쿠팡 파트너스 제휴마케팅에 참여합니다. 링크를 통한 구매 시 수수료가 발생할 수 있습니다."
+        android:textColor="#7D6608"
+        android:textSize="11sp"
+        android:lineSpacingExtra="2dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:padding="4dp"
+        android:text="자세히 ›"
+        android:textColor="#7D6608"
+        android:textSize="11sp"
+        android:textStyle="bold"/>
+
+</LinearLayout>

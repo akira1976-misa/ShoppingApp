@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph" app:startDestination="@id/homeFragment">
+
+    <fragment android:id="@+id/homeFragment"
+        android:name="com.shopping.pricecompare.ui.HomeFragment" android:label="홈">
+        <action android:id="@+id/action_home_to_productList" app:destination="@id/productListFragment"/>
+        <action android:id="@+id/action_home_to_search" app:destination="@id/searchFragment"/>
+        <action android:id="@+id/action_home_to_category" app:destination="@id/categoryFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/categoryFragment"
+        android:name="com.shopping.pricecompare.ui.CategoryFragment" android:label="카테고리">
+        <action android:id="@+id/action_category_to_productList" app:destination="@id/productListFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/searchFragment"
+        android:name="com.shopping.pricecompare.ui.SearchFragment" android:label="검색">
+        <action android:id="@+id/action_search_to_productList" app:destination="@id/productListFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/productListFragment"
+        android:name="com.shopping.pricecompare.ui.ProductListFragment" android:label="상품목록">
+        <argument android:name="category" android:defaultValue="전체" app:argType="string"/>
+        <argument android:name="searchMode" android:defaultValue="false" app:argType="boolean"/>
+    </fragment>
+</navigation>
